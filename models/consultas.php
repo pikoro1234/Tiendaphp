@@ -34,11 +34,11 @@
 
             $_SESSION["logueado"] = $userOriginal;
 
-            header("Location: https://localhost/Proyectophp/views/dashboard/principal.php");
+            header("Location: http://localhost/Tiendaphp/views/dashboard/principal.php");
             
         }else{
            
-            header("Location: https://localhost/Proyectophp/views/login.php");
+            header("Location: http://localhost/Tiendaphp/views/login.php");
         }
     }
 
@@ -101,11 +101,11 @@
             //REGISTRAMOS AL CLIENTE Y LUEGO LO REDIRECCIONAMOS AL INDEX
             if($consultaPreparada->execute()){
                 
-                header('Location: https://localhost/Proyectophp/index.php');
+                header('Location: http://localhost/Tiendaphp/index.php');
     
             }else{
 
-                header('Location: http://localhost/Proyectophp/views/404.php');
+                header('Location: http://localhost/Tiendaphp/views/404.php');
                 //echo "no se pudo insertar revisa los datos" . mysqli_error($con);
             }
         }
@@ -166,7 +166,7 @@
         $fecha = new DateTime();
 
         //URL UPLOADS 
-        $link = "https://localhost/Proyectophp/uploads/";
+        $link = "http://localhost/Tiendaphp/Proyectophp/uploads/";
 
         //VARIABLE OBTIENE ID DEL USUARIO QUE ESTA EN LA SESSION
         $idUsuario = selectSessionId($con,$user);

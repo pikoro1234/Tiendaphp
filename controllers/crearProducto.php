@@ -79,7 +79,7 @@
 
         move_uploaded_file($_FILES['foto3']['tmp_name'],$fichero3);
         
-        header('Location: https://localhost/Proyectophp/views/dashboard/principal.php');
+        header('Location: http://localhost/Tiendaphp/views/dashboard/principal.php');
     }
 
    

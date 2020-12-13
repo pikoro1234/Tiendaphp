@@ -39,7 +39,7 @@
                 <?php
                     if (!isset($_SESSION['logueado'])) {
 
-                        echo "<a href='http://localhost/Tiendaphp/Proyectophp/views/login.php' class='btn btn-outline-success ml-5 mr-2' style='font-size:14px;'>AREA PRIVADA</a>";  
+                        echo "<a href='http://localhost/Tiendaphp/views/login.php' class='btn btn-outline-success ml-5 mr-2' style='font-size:14px;'>AREA PRIVADA</a>";  
 
                         // echo "<a href='http://localhost/Tiendaphp/views/login.php' class='btn btn-outline-success ml-5 mr-2' style='font-size:14px;'>AREA PRIVADA</a>";
                     }else{

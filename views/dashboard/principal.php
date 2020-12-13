@@ -13,7 +13,7 @@
     //verificamos la variable de sesion creada al hacer login
     if (!isset($_SESSION["logueado"])) {
         
-        header("Location: https://localhost/Proyectophp/index.php");
+        header("Location: http://localhost/Tiendaphp/index.php");
     }
 ?>
 

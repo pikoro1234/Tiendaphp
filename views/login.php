@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- style css -->
-    <link rel="stylesheet" href="https://localhost/Proyectophp/css/style.css">
+    <link rel="stylesheet" href="http://localhost/Tiendaphp/css/style.css">
     <title>Area Privada</title>
 </head>
 <body>
 
     <div class="container login mt-5 d-flex justify-content-center">
 
-        <form action="http://localhost/Proyectophp/controllers/verificarLogin.php" class="bg-white p-5 m-5 w-50" method="POST">
+        <form action="http://localhost/Tiendaphp/controllers/verificarLogin.php" class="bg-white p-5 m-5 w-50" method="POST">
             <h3 class="text-center" style="letter-spacing: 3px;">LOGIN</h3>
 
             <div class="form-group">

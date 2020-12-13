@@ -4,7 +4,7 @@
     //verificamos la variable de sesion creada al hacer login
     if (!isset($_SESSION["logueado"])) {
 
-        header("Location: https://localhost/Proyectophp/index.php");
+        header("Location: http://localhost/Tiendaphp/index.php");
     }
 ?>
 
@@ -14,7 +14,7 @@
 
     <div class="content-rigth p-5">
         
-        <form action="http://localhost/Proyectophp/controllers/crearProducto.php" method="POST" class="p-5 bg-white m-5" enctype="multipart/form-data">
+        <form action="http://localhost/Tiendaphp/controllers/crearProducto.php" method="POST" class="p-5 bg-white m-5" enctype="multipart/form-data">
             
             <h2 class="text-center mb-5">Crear Producto</h2>
 

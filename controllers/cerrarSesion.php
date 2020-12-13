@@ -8,5 +8,5 @@
         session_destroy();
     }
 
-    header("Location: https://localhost/Proyectophp/index.php");
+    header("Location: http://localhost/Tiendaphp/index.php");
 ?>
