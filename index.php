@@ -11,7 +11,7 @@
   <h1 class="text-center mt-5 mb-3">My store</h1>
 
   <div class="post-header mb-4 d-flex justify-content-between ml-2 mr-2">
-    <form  action="https://localhost/Proyectophp/index.php" method="POST" class="form-inline my-2 my-lg-0 mr-4">
+    <form  action="http://localhost/Tiendaphp/index.php" method="POST" class="form-inline my-2 my-lg-0 mr-4">
       <select class="form-select mr-2" name="precio" aria-label="Default select example">
         <option value="trash">Ordenar por Precio</option>
         <option value="1">barato - caro</option>
@@ -36,7 +36,7 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
     </form>
 
-    <form action="https://localhost/Proyectophp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4">
+    <form action="http://localhost/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4">
       <input name="producto" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" required>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
@@ -79,7 +79,7 @@
                   <div class='card-body'>
                     <h5 class='card-title'>".$prod['nombre']."</h5>
                       <p class='card-text'>".$prod['descripcion']."</p>
-                      <a href='https://localhost/Proyectophp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
+                      <a href='http://localhost/Tiendaphp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
                   </div>
                 </div>";
 
