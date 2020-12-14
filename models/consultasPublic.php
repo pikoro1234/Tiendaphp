@@ -35,22 +35,21 @@
 
         $resultado = array();
 
-        $valorNombre = "$nombre%";
+        $valorNombre = $nombre;
 
-        $sql = "SELECT * FROM producto WHERE nombre LIKE :nombre";
+        $sql = "SELECT * FROM producto WHERE nombre LIKE CONCAT(?,'%')";
 
-        $consulta = $con->pdo->prepare($sql);
+        $consulta = $con->prepare($sql);
 
-        $consulta->bindParam(':nombre',$valorNombre,PDO::PARAM_STR);
+        $consulta->bind_param("s",$valorNombre);
 
         $consulta->execute();
 
-        $datos = $consulta->fetchAll();
+        $datos = $consulta->get_result();
 
-        var_dump($datos);
+        while ($row = $datos->fetch_assoc()) {
 
-        foreach ($datos as $dato) {
-            array_push($resultado,$dato);
+            array_push($resultado,$row);
         }
 
         return $resultado;

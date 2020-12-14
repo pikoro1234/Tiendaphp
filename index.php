@@ -71,14 +71,36 @@
             $arrayProductos = selectProductos($conn,$fecha);
         }
 
+        if (isset($_POST['precio'])) {
+
+            $precio = $_POST['precio'];
+        }
+
+        //echo $precio;
+
         foreach($arrayProductos as $prod){
 
           echo "
                 <div class='card' style='width: 18rem;'>
-                  <img src='".$prod['imagen_front']."' class='card-img-top' alt='...'>
+                  <div class='spam-stock' style='position: relative;'>
+                    <div class='text-stock' style='background-color: #fff; height: 100%; width: 100%;
+                    text-align: center;position: absolute;z-index: 100;opacity: 0.2;font-size: 40px;font-weight: bold;padding-top: 60px;'>
+                      <p class='card-text'>".$prod['estado']."</p>
+                    </div>
+                    <img src='".$prod['imagen_front']."' class='card-img-top' alt='...'>
+                  </div>
                   <div class='card-body'>
                     <h5 class='card-title'>".$prod['nombre']."</h5>
+                      <p class='card-text'>".$prod['categoria']."</p>
                       <p class='card-text'>".$prod['descripcion']."</p>
+                      <div class='pree-footer mb-3' style='display:flex;justify-content: space-between;'>
+                        <p class='card-text mb-0 mt-2 ml-4'>
+                          <small class='text-muted' style='font-weight: bold;font-size: 15px;'>".$prod['fecha']."</small>
+                        </p>
+                        <h2 style='display: flex;justify-content: end;'> 
+                          <span class=' text-white float-rigth badge bg-secondary'>".$prod['precio']."€</span>
+                        </h2>                        
+                      </div>                      
                       <a href='http://localhost/Tiendaphp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
                   </div>
                 </div>";
