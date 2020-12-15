@@ -35,7 +35,7 @@
 
         $resultado = array();
 
-        $valorNombre = $nombre;
+        $valorNombre = substr($nombre,0,1);
 
         $sql = "SELECT * FROM producto WHERE nombre LIKE CONCAT(?,'%')";
 

@@ -54,8 +54,6 @@
 
           $producto = $_GET['producto'];
 
-          echo substr($producto,0,1);
-
           $arrayProductos = selectFiltrados($conn,$producto);
 
         }else{
@@ -75,8 +73,6 @@
 
             $precio = $_POST['precio'];
         }
-
-        //echo $precio;
 
         foreach($arrayProductos as $prod){
 
@@ -105,6 +101,12 @@
                   </div>
                 </div>";
 
+        }
+
+        if (count($arrayProductos) == 0) {
+          echo "<div class='alert alert-secondary w-100 text-center' role='alert'>
+          No se encontraron resultados para la busqueda '' <spam style='font-weight: bold;'>".strtoupper($_GET['producto'])."</spam> ''
+        </div>";
         }
     ?>
       
