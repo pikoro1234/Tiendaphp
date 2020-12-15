@@ -14,13 +14,13 @@
 
     $arraySingle = selectSinglePageProducto($conn,$idUser);
 
-    if (strlen($arraySingle[0]['imagen_back']) == 38) {
+    if (strlen($arraySingle[0]['imagen_back']) == 35) {
 
         $arraySingle[0]['imagen_back'] .= "nofoto.png";
     }
 
 
-    if (strlen($arraySingle[0]['imagen_left']) == 38) {
+    if (strlen($arraySingle[0]['imagen_left']) == 35) {
 
         $arraySingle[0]['imagen_left'] .= "nofoto.png";
     }
@@ -55,7 +55,44 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center mt-3">Datos del Producto</h3>
+    <h3 class="text-center my-3">Datos del Producto</h3>
+    <div class="card w-100 mt-2 mb-5" style="box-shadow: 0 -6px 20px #00000059;">
+        <div class="card-body">
+            <h2 class="card-title text-center"><?php echo $arraySingle[0]['nombre']?></h2>
+            <div class="datos-internos d-flex">
+                <div class="content-left-card w-50 p-5">
+                    <div class="cards-internos d-flex mb-3 justify-content-between">
+                        <div class="cards-internos-left w-50">
+                            <p class="card-text"><strong>categoria: </strong><?php echo $arraySingle[0]['categoria']?></p>
+                            <p class="card-text"><strong>visitas: </strong><?php echo $arraySingle[0]['numero_visitas']?></p>
+                        </div>
+                        <div class="cards-internos-rigth w-50">
+                            <p class="card-text"><strong>stock: </strong><?php echo $arraySingle[0]['estado']?></p>
+                            <p class="card-text"><strong>fecha: </strong><?php echo $arraySingle[0]['fecha']?></p>
+                        </div>
+                    </div>
+                    <h3 class="card-text text-center">descripcion</h3>
+                    <p class="card-text"><?php echo $arraySingle[0]['descripcion']?></p>
+                </div>
+                <div class="content-rigth-card w-50 p-5">
+                    <div class="contenedor-rigth d-flex justify-content-around">
+                        <div class="contenedor-left-fond">
+                            <p class="card-text"><strong>precio: </strong><?php echo $arraySingle[0]['precio']?></p>
+                            <p class="card-text"><strong>peso: </strong><?php echo $arraySingle[0]['peso']?></p>
+                            <p class="card-text"><strong>color: </strong><?php echo $arraySingle[0]['color']?></p>
+                        </div>
+                        <div class="contenedor-rigth-fond">
+                            <p class="card-text"><strong>marca: </strong><?php echo $arraySingle[0]['marca']?></p>
+                            <p class="card-text"><strong>envase: </strong><?php echo $arraySingle[0]['envase']?></p>
+                            <p class="card-text"><strong>dimensiones: </strong><?php echo $arraySingle[0]['dimension']?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>
 
 <style>
@@ -66,6 +103,7 @@
     html body #carouselExampleDark .carousel-inner .carousel-item,
     html body #carouselExampleDark .carousel-inner .carousel-item img{
         height: 500px;
+        box-shadow: 0 -6px 20px #00000059;
     }
 </style>
 
