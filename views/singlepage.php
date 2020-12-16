@@ -19,11 +19,24 @@
         $arraySingle[0]['imagen_back'] .= "nofoto.png";
     }
 
-
     if (strlen($arraySingle[0]['imagen_left']) == 35) {
 
         $arraySingle[0]['imagen_left'] .= "nofoto.png";
     }
+
+
+    /* if (isset($_COOKIE['prueba'])) {
+
+        setcookie("prueba",$_COOKIE['prueba']+1,time()+60+60+60);
+        
+    }else{
+
+        setcookie("prueba",1,time()+60+06+06);
+    }*/
+
+    $valor = $arraySingle[0]['numero_visitas']+1;
+
+    contadorVisitas($conn,$idUser,$valor);
 ?>
 
 <h1 class="text-center mt-2 mb-3"><?php echo $arraySingle[0]['nombre'];?></h1>
@@ -64,7 +77,7 @@
                     <div class="cards-internos d-flex mb-3 justify-content-between">
                         <div class="cards-internos-left w-50">
                             <p class="card-text"><strong>categoria: </strong><?php echo $arraySingle[0]['categoria']?></p>
-                            <p class="card-text"><strong>visitas: </strong><?php echo $arraySingle[0]['numero_visitas']?></p>
+                            <p class="card-text"><strong>visitas: </strong><?php echo $valor?></p>
                         </div>
                         <div class="cards-internos-rigth w-50">
                             <p class="card-text"><strong>stock: </strong><?php echo $arraySingle[0]['estado']?></p>

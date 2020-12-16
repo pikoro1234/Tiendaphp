@@ -79,4 +79,22 @@
 
         return $resultado;
     }
+
+
+    function contadorVisitas($con,$parametro,$valor){
+
+        $valorVisitas = $valor;
+
+        $idProducto = $parametro;
+
+        $sql = "UPDATE producto SET numero_visitas = ? WHERE id = ?";
+
+        $consulta = mysqli_prepare($con,$sql);
+
+        mysqli_stmt_bind_param($consulta,'ii',$valorVisitas,$idProducto);
+
+        mysqli_stmt_execute($consulta);
+
+    }
+
 ?>
