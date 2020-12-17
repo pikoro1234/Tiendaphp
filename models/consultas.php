@@ -166,7 +166,7 @@
         $fecha = new DateTime();
 
         //URL UPLOADS 
-        $link = "http://localhost/Tiendaphp/Proyectophp/uploads/";
+        $link = "http://localhost/Tiendaphp/uploads/";
 
         //VARIABLE OBTIENE ID DEL USUARIO QUE ESTA EN LA SESSION
         $idUsuario = selectSessionId($con,$user);

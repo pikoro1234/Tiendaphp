@@ -54,7 +54,7 @@
                 <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="ciudad">
             </div>
 
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label for="exampleFormControlFile1">Subir foto perfil</label>
                 <input type="file" class="form-control-file" name="fotoperfil" id="fotoperfil">
             </div>
@@ -62,7 +62,7 @@
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" name="check" id="check">
               <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
-            </div>
+            </div>-->
             <button type="submit" class="btn btn-primary w-100 p-3">Singin</button>
         </form>
    
