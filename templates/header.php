@@ -43,8 +43,8 @@
                         
                         echo "<a href='http://localhost/Tiendaphp/views/registrate.php' class='btn btn-outline-success' style='font-size:14px;'>REGISTRATE</a>";
 
-                        // echo "<a href='http://localhost/Tiendaphp/views/login.php' class='btn btn-outline-success ml-5 mr-2' style='font-size:14px;'>AREA PRIVADA</a>";
                     }else{
+                        
                         echo "<a href='http://localhost/Tiendaphp/views/dashboard/principal.php' class='btn btn-outline-success ml-5 mr-2' style='font-size:14px;'>AREA PRIVADA</a>";
                     }
                 ?>

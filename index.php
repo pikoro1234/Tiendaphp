@@ -10,7 +10,8 @@
 
   <h1 class="text-center mt-5 mb-3">My store</h1>
 
-  <label for="customRange2" class="form-label">Example range</label>
+  <label for="customRange2" class="form-label">rango precios (PROCESO)</label>
+  
   <input type="range" class="form-range" min="0" max="5" id="customRange2">
 
   <div class="post-header mb-4 d-flex justify-content-between ml-2 mr-2">
