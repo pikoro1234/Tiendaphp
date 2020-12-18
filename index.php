@@ -10,39 +10,68 @@
 
   <h1 class="text-center mt-5 mb-3">My store</h1>
 
-  <label for="customRange2" class="form-label">rango precios (PROCESO)</label>
-  
-  <input type="range" class="form-range" min="0" max="5" id="customRange2">
-
   <div class="post-header mb-4 d-flex justify-content-between ml-2 mr-2">
-    <form  action="http://localhost/Tiendaphp/index.php" method="POST" class="form-inline my-2 my-lg-0 mr-4">
-      <select class="form-select mr-2" name="precio" aria-label="Default select example">
-        <option value="trash">Ordenar por Precio</option>
-        <option value="1">barato - caro</option>
-        <option value="2">caro - barato</option>
-      </select>
-    
+    <form  action="http://localhost/Tiendaphp/index.php" method="POST" class="form-inline my-2 my-lg-0 mr-4 w-50">
+
       <select class="form-select mr-2" name="fecha" aria-label="Default select example">
         <option value="trash">Ordenar por Fecha</option>
         <option value="descendente">nuevo - antiguo</option>
         <option value="ascendente">antiguo - nuevo</option>
       </select>
 
-      <select class="form-select mr-2" name="categoria" aria-label="Default select example">
-        <option value="trash">Filtrar Categorias</option>
-        <option value="#1">Categoria #1</option>
-        <option value="#2">Categoria #2</option>
-        <option value="#3">Categoria #3</option>
-        <option value="#4">Categoria #4</option>
-        <option value="#5">Categoria #5</option>
+      <select class="form-select mr-2" name="precio" aria-label="Default select example" disabled>
+        <option value="trash">Ordenar por Precio</option>
+        <option value="1">barato - caro</option>
+        <option value="2">caro - barato</option>
       </select>
 
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filtrar</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+
+    <div class="elements-top d-flex justify-content-around w-100 p-4 invisible">
+
+      <label for="customRange2" class="form-label"></label>
+
+      <input type="range" class="form-range" min="0" max="5" id="customRange2">
+
+    </div>
+
     </form>
 
-    <form action="http://localhost/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4">
-      <input name="producto" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" required>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    <form action="http://localhost/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4 w-50">
+
+      <div class="elements-bottom">
+
+        <select class="form-select mr-2" name="categoria" aria-label="Default select example" disabled>
+          <option value="trash">Filtrar Categorias</option>
+          <option value="#1">Categoria #1</option>
+          <option value="#2">Categoria #2</option>
+          <option value="#3">Categoria #3</option>
+          <option value="#4">Categoria #4</option>
+          <option value="#5">Categoria #5</option>
+        </select>
+
+        <input name="producto" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" required>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </div>
+
+      <div class="elements-top d-flex justify-content-center w-100">
+
+        <!-- <label for="customRange2" class="form-label mr-4">rango precios</label>
+  
+        <input type="range" class="form-range" min="0" max="5" id="customRange2" disabled> -->
+        <div class="content-inputs d-flex flex-wrap">
+          <p class="text-center w-100 mb-0 mt-3">filtra por el precio</p>
+          <div class="input-group mb-3 w-50">          
+            <input type="number" name="desde" class="form-control ml-1 mr-1" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+
+          <div class="input-group mb-3 w-50">
+            <input type="number"  name="hasta" class="form-control ml-1 mr-1" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+        </div>
+      </div>
+
     </form>
   </div>
     
