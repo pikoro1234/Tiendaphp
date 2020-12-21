@@ -119,24 +119,43 @@
                   echo "<span class='pt-2 pb-2 pl-3 pr-3 badge bg-success text-white' style='position: absolute;z-index: 115;top: -1px;right: -12px; font-size: 18px;'>".$prod['estado']."</span>";
                 }
 
-                 echo "<div class='spam-stock' style='position: relative;'>
+                if ($prod['estado'] === 'oferta') {
+                  echo "<span class='pt-2 pb-2 pl-3 pr-3 badge bg-warning text-white' style='position: absolute;z-index: 115;top: -1px;right: -12px; font-size: 18px;'>".$prod['estado']."</span>";
+                }
+
+                if ($prod['estado'] === 'activo') {
+                  echo "<span class='pt-2 pb-2 pl-3 pr-3 badge bg-primary text-white' style='position: absolute;z-index: 115;top: -1px;right: -12px; font-size: 18px;'>".$prod['estado']."</span>";
+                }
+
+                if ($prod['estado'] === 'stock') {
+                  echo "<span class='pt-2 pb-2 pl-3 pr-3 badge bg-dark text-white' style='position: absolute;z-index: 115;top: -1px;right: -12px; font-size: 18px;'>".$prod['estado']."</span>";
+                }
+
+                if ($prod['estado'] === 'vendido') {
+
+                  echo "<div class='spam-stock' style='position: relative;'>
                     <div class='text-stock' style='background-color: #fff; height: 100%; width: 100%;
-                    text-align: center;position: absolute;z-index: 100;opacity: 0.2;font-size: 40px;font-weight: bold;padding-top: 60px;'>
-                      <p class='card-text'>".$prod['estado']."</p>
-                    </div>
+                    text-align: center;position: absolute;z-index: 100;opacity: 0.2;font-size: 40px;font-weight: bold;padding-top: 60px;'>";
+
+                  echo "<p class='card-text'>".$prod['estado']."</p>";
+
+                }else{
+
+                  echo "<div class='spam-stock' style='position: relative;'>
+                    <div class='text-stock' height: 100%; width: 100%;
+                    text-align: center;position: absolute;z-index: 100;opacity: 0.2;font-size: 40px;font-weight: bold;padding-top: 60px;'>";
+                }
+
+                    echo"</div>
                     <img src='".$prod['imagen_front']."' class='card-img-top' alt='...'>
                   </div>
                   <div class='card-body'>
                     <h5 class='card-title'>".$prod['nombre']."</h5>
                       <p class='card-text'><strong>categoria: </strong>".$prod['categoria']."</p>
-                      <p class='card-text'><strong>estado: </strong>".$prod['estado']."</p>
                       <p class='card-text'>".$prod['descripcion']."</p>
-                      <div class='pree-footer mb-3' style='display:flex;justify-content: space-between;'>
-                        <p class='card-text mb-0 mt-2 ml-4'>
-                          <small class='text-muted' style='font-weight: bold;font-size: 15px;'>".$prod['fecha']."</small>
-                        </p>
+                      <div class='pree-footer mb-3' style='display:flex;'>
                         <h2 style='display: flex;justify-content: end;'> 
-                          <span class=' text-white float-rigth badge bg-secondary'>€ ".$prod['precio']."</span>
+                          <span class=' text-white badge bg-secondary'>€ ".$prod['precio']."</span>
                         </h2>                        
                       </div>                      
                       <a href='http://localhost/Tiendaphp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
