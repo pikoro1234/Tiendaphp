@@ -34,11 +34,11 @@
 
             $_SESSION["logueado"] = $userOriginal;
 
-            header("Location: http://localhost/Tiendaphp/views/dashboard/principal.php");
+            header("Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/views/dashboard/principal.php");
             
         }else{
            
-            header("Location: http://localhost/Tiendaphp/views/login.php");
+            header("Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/views/login.php");
         }
     }
 
@@ -101,11 +101,11 @@
             //REGISTRAMOS AL CLIENTE Y LUEGO LO REDIRECCIONAMOS AL INDEX
             if($consultaPreparada->execute()){
                 
-                header('Location: http://localhost/Tiendaphp/index.php');
+                header('Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/index.php');
     
             }else{
 
-                header('Location: http://localhost/Tiendaphp/views/404.php');
+                header('Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/views/404.php');
                 //echo "no se pudo insertar revisa los datos" . mysqli_error($con);
             }
         }
@@ -166,7 +166,7 @@
         $fecha = new DateTime();
 
         //URL UPLOADS 
-        $link = "http://localhost/Tiendaphp/uploads/";
+        $link = "https://jfiorilo123.000webhostapp.com/Tiendaphp/uploads/";
 
         //VARIABLE OBTIENE ID DEL USUARIO QUE ESTA EN LA SESSION
         $idUsuario = selectSessionId($con,$user);
@@ -210,7 +210,7 @@
 
         $consultaPreparada = $con->prepare($sql);
 
-        $consultaPreparada->bind_param("issssdsdsssssssii",$valor1,$valor2,$valor3,$valor4,$valor5,$valor6,$valor7,$valor8,$valor9,$valor10,$valor11,$valor12,$valor13,$valor14,$valor15,$valor16,$valor17);
+        $consultaPreparada->bind_param("issssdsssssssssii",$valor1,$valor2,$valor3,$valor4,$valor5,$valor6,$valor7,$valor8,$valor9,$valor10,$valor11,$valor12,$valor13,$valor14,$valor15,$valor16,$valor17);
 
         if($consultaPreparada->execute()){
 

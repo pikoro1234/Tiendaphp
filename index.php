@@ -11,56 +11,48 @@
   <h1 class="text-center mt-5 mb-3">My store</h1>
 
   <div class="post-header mb-4 d-flex justify-content-between ml-2 mr-2">
-    <form  action="http://localhost/Tiendaphp/index.php" method="POST" class="form-inline my-2 my-lg-0 mr-4 w-50">
+    <div class="content-forms">
+      <form method="POST" action="https://jfiorilo123.000webhostapp.com/Tiendaphp/index.php" class="form-inline my-2 my-lg-0 mr-4 w-100" style="margin-bottom: 10px!important;">
 
-      <select class="form-select mr-2" name="fecha" aria-label="Default select example">
-        <option value="trash">Ordenar por Fecha</option>
-        <option value="descendente">nuevo - antiguo</option>
-        <option value="ascendente">antiguo - nuevo</option>
-      </select>
-
-      <select class="form-select mr-2" name="precio" aria-label="Default select example" disabled>
-        <option value="trash">Ordenar por Precio</option>
-        <option value="1">barato - caro</option>
-        <option value="2">caro - barato</option>
-      </select>
-
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
-
-    <div class="elements-top d-flex justify-content-around w-100 p-4 invisible">
-
-      <label for="customRange2" class="form-label"></label>
-
-      <input type="range" class="form-range" min="0" max="5" id="customRange2">
-
-    </div>
-
-    </form>
-
-    <form action="http://localhost/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4 w-50">
-
-      <div class="elements-bottom">
-
-        <select class="form-select mr-2" name="categoria" aria-label="Default select example" disabled>
-          <option value="trash">Filtrar Categorias</option>
-          <option value="#1">Categoria #1</option>
-          <option value="#2">Categoria #2</option>
-          <option value="#3">Categoria #3</option>
-          <option value="#4">Categoria #4</option>
-          <option value="#5">Categoria #5</option>
+        <select class="form-select mr-2" name="fecha" aria-label="Default select example">
+          <option value="">Ordenar por Fecha</option>
+          <option value="descendente">nuevo - antiguo</option>
+          <option value="ascendente">antiguo - nuevo</option>
         </select>
 
-        <input name="producto" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" required>
+        <select class="form-select mr-2" name="precio" aria-label="Default select example">
+          <option value="">Ordenar por Precio</option>
+          <option value="barato">barato - caro</option>
+          <option value="caro">caro - barato</option>
+        </select>
 
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+
+      </form>
+ 
+      <form action="https://jfiorilo123.000webhostapp.com/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4 w-100" style="margin-top: 20px !important;">
+        <input name="producto" class="form-control mr-sm-2 mb-2 mt-4" style="width: 96%;" type="search" placeholder="Buscar" aria-label="Search" required>
+
+        <button class="btn btn-outline-success my-2 my-sm-0 mt-4" style="width: 96%;" type="submit">Buscar</button>
+      </form>
+    </div>
+  
+    <form action="https://jfiorilo123.000webhostapp.com/Tiendaphp/index.php" method="GET" class="form-inline my-2 my-lg-0 mr-4 w-50">
+
+      <div class="elements-bottom w-100 d-flex">
+
+        <select class="form-select mr-2 w-100" name="categoria" aria-label="Default select example">
+          <option value="">Filtrar Categorias</option>
+          <option value="1">Categoria #1</option>
+          <option value="2">Categoria #2</option>
+          <option value="3">Categoria #3</option>
+          <option value="4">Categoria #4</option>
+          <option value="5">Categoria #5</option>
+        </select>
       </div>
 
-      <div class="elements-top d-flex justify-content-center w-100">
-
-        <!-- <label for="customRange2" class="form-label mr-4">rango precios</label>
-  
-        <input type="range" class="form-range" min="0" max="5" id="customRange2" disabled> -->
-        <div class="content-inputs d-flex flex-wrap">
+      <div class="elements-top d-flex justify-content-center flex-wrap w-100">
+        <div class="content-inputs d-flex flex-wrap w-100">
           <p class="text-center w-100 mb-0 mt-3">filtra por el precio</p>
           <div class="input-group mb-3 w-50">          
             <input type="number" name="desde" class="form-control ml-1 mr-1" placeholder="desde" aria-label="Username" aria-describedby="basic-addon1">
@@ -70,6 +62,8 @@
             <input type="number"  name="hasta" class="form-control ml-1 mr-1" placeholder="hasta" aria-label="Username" aria-describedby="basic-addon1">
           </div>
         </div>
+
+        <button class="btn btn-outline-success my-2 my-sm-0 w-100" type="submit">Filtrar</button>
       </div>
 
     </form>
@@ -80,31 +74,63 @@
     <?php
         $conn = conexion();
 
-        $fecha = "";
+        $arrayProductos = selectProductos($conn,"");
 
         //validacion para filtrar por nombre
         if (isset($_GET['producto'])) {
 
-          $producto = $_GET['producto'];
+          if (!empty($_GET['producto'])) {
 
-          $arrayProductos = selectFiltrados($conn,$producto);
+            $producto = $_GET['producto'];
 
-        }else{
-
-          $arrayProductos = selectProductos($conn,$fecha);
+            $arrayProductos = selectFiltradosNombre($conn,$producto);
+          }
         }
 
-        //validacion para filtrar por fecha
+        //validacion para filtrar por categoria
+        if (isset($_GET['categoria'])) {
+
+          if (!empty($_GET['categoria'])) {
+
+            $categoria = $_GET['categoria'];
+            
+            $arrayProductos = selectFiltradosCategoria($conn,$categoria);
+          }          
+        }
+
+        //validacion para filtrar por precio desde || hasta
+        if ((isset($_GET['desde']) && (isset($_GET['hasta'])))) {
+
+          if (!empty(($_GET['desde']) && ($_GET['hasta']))) {
+
+            $desde = $_GET['desde'];
+
+            $hasta = $_GET['hasta'];
+
+            $arrayProductos = selectFiltradosBettween($conn,$desde,$hasta);
+          }
+        }
+
+        //validacion ordenar por precio
+        if (isset($_POST['precio'])) {
+
+          if (!empty($_POST['precio'])) {
+
+            $precio = $_POST['precio'];
+
+            $arrayProductos = selectProductos($conn,$precio);
+          }
+        }
+
+        //validacion para ordenar por fecha
         if (isset($_POST['fecha'])) {
-          
+
+          if (!empty($_POST['fecha'])) {
+            
             $fecha = $_POST['fecha'];
             
             $arrayProductos = selectProductos($conn,$fecha);
-        }
-
-        if (isset($_POST['precio'])) {
-
-            $precio = $_POST['precio'];
+          }                     
         }
 
         foreach($arrayProductos as $prod){
@@ -135,7 +161,7 @@
 
                   echo "<div class='spam-stock' style='position: relative;'>
                     <div class='text-stock' style='background-color: #fff; height: 100%; width: 100%;
-                    text-align: center;position: absolute;z-index: 100;opacity: 0.2;font-size: 40px;font-weight: bold;padding-top: 60px;'>";
+                    text-align: center;position: absolute;z-index: 100;opacity: 0.5;font-size: 40px;font-weight: bold;padding-top: 60px;'>";
 
                   echo "<p class='card-text'>".$prod['estado']."</p>";
 
@@ -147,7 +173,7 @@
                 }
 
                     echo"</div>
-                    <img src='".$prod['imagen_front']."' class='card-img-top' alt='...'>
+                    <img style='height: 180px!important;' src='".$prod['imagen_front']."' class='card-img-top' alt='...'>
                   </div>
                   <div class='card-body'>
                     <h5 class='card-title'>".$prod['nombre']."</h5>
@@ -158,10 +184,9 @@
                           <span class=' text-white badge bg-secondary'>€ ".$prod['precio']."</span>
                         </h2>                        
                       </div>                      
-                      <a href='http://localhost/Tiendaphp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
+                      <a href='https://jfiorilo123.000webhostapp.com/Tiendaphp/views/singlepage.php?param=".$prod['id']."' class='btn btn-primary'>Leer mas...</a>
                   </div>
                 </div>";
-
         }
 
         if (count($arrayProductos) == 0) {
@@ -169,8 +194,7 @@
           No se encontraron resultados para la busqueda '' <spam style='font-weight: bold;'>".strtoupper($_GET['producto'])."</spam> ''
         </div>";
         }
-    ?>
-      
+    ?>   
   </div>
 </div><!-- fin container -->
 

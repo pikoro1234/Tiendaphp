@@ -2,13 +2,13 @@
 
     function conexion(){
 
-        $user = "root";
+        $user = "id8972026_hostjorge";
 
-        $password = "";
+        $password = "L(K22yM/ddK!sG!R";
 
         $serve = "localhost";
 
-        $db = "jordi";
+        $db = "id8972026_webhost";
 
         //$con = mysqli_connect($serve,$user,$password,$db);
 

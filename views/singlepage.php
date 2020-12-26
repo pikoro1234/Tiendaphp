@@ -14,12 +14,12 @@
 
     $arraySingle = selectSinglePageProducto($conn,$idUser);
 
-    if (strlen($arraySingle[0]['imagen_back']) == 35) {
+    if (strlen($arraySingle[0]['imagen_back']) == 56) {
 
         $arraySingle[0]['imagen_back'] .= "nofoto.png";
     }
 
-    if (strlen($arraySingle[0]['imagen_left']) == 35) {
+    if (strlen($arraySingle[0]['imagen_left']) == 56) {
 
         $arraySingle[0]['imagen_left'] .= "nofoto.png";
     }
@@ -85,25 +85,35 @@
                         </div>
                     </div>
                     <h3 class="card-text text-center">descripcion</h3>
-                    <p class="card-text"><?php echo $arraySingle[0]['descripcion']?></p>
+                    <p class="card-text">
+                    <?php echo strlen($arraySingle[0]['descripcion']) === 0 ? 'sin ninguna descripcion especificada por el usuario' : $arraySingle[0]['descripcion'];?>
+                    </p>
                 </div>
                 <div class="content-rigth-card w-50 p-5">
                     <div class="contenedor-rigth d-flex justify-content-around">
                         <div class="contenedor-left-fond">
                             <p class="card-text"><strong>precio: </strong><?php echo $arraySingle[0]['precio']?></p>
-                            <p class="card-text"><strong>peso: </strong><?php echo $arraySingle[0]['peso']?></p>
-                            <p class="card-text"><strong>color: </strong><?php echo $arraySingle[0]['color']?></p>
+                            <p class="card-text"><strong>peso: </strong>
+                            <?php echo strlen($arraySingle[0]['peso']) === 0 ? 'sin peso' : $arraySingle[0]['peso'];?>
+                            </p>
+                            <p class="card-text"><strong>color: </strong>
+                            <?php echo strlen($arraySingle[0]['color']) === 0 ? 'sin color' : $arraySingle[0]['color'];?>
+                            </p>
                         </div>
                         <div class="contenedor-rigth-fond">
-                            <p class="card-text"><strong>marca: </strong><?php echo $arraySingle[0]['marca']?></p>
-                            <p class="card-text"><strong>envase: </strong><?php echo $arraySingle[0]['envase']?></p>
-                            <p class="card-text"><strong>dimensiones: </strong><?php echo $arraySingle[0]['dimension']?></p>
+                            <p class="card-text"><strong>marca: </strong>
+                            <?php echo strlen($arraySingle[0]['marca']) === 0 ? 'sin marca' : $arraySingle[0]['marca'];?>
+                            </p>
+                            <p class="card-text"><strong>envase: </strong>
+                            <?php echo strlen($arraySingle[0]['envase']) === 0 ? 'sin envase' : $arraySingle[0]['envase'];?>
+                            </p>
+                            <p class="card-text"><strong>dimensiones: </strong>
+                            <?php echo strlen($arraySingle[0]['dimension']) === 0 ? 'sin dimensiones' : $arraySingle[0]['dimension'];?>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

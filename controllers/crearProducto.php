@@ -3,8 +3,6 @@
 
     require_once('../models/consultas.php');
 
-    $conn = conexion();
-
     //RECOGEMOS EL USUARIO DE LA SESSION YA INICIADA
     session_start();
 
@@ -63,6 +61,8 @@
         $estado = $_POST['estado'];
     }
 
+    $conn = conexion();
+
     if(insertarProducto($conn,$user,$foto1,$foto2,$foto3,$nombre,$precio,$descripcion,$peso,$dimension,$marca,$color,$envase,$categoria,$estado)){
 
         $directorio = "../uploads/";
@@ -79,8 +79,10 @@
 
         move_uploaded_file($_FILES['foto3']['tmp_name'],$fichero3);
         
-        header('Location: http://localhost/Tiendaphp/views/dashboard/principal.php');
-    }
+        header('Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/views/dashboard/principal.php');
+    }else{
 
-   
+        header('Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/views/404.php');
+
+    }   
 ?>

@@ -8,5 +8,5 @@
         session_destroy();
     }
 
-    header("Location: http://localhost/Tiendaphp/index.php");
+    header("Location: https://jfiorilo123.000webhostapp.com/Tiendaphp/index.php");
 ?>

@@ -1,5 +1,15 @@
 <?php 
     
+    //verificamos la variable de sesion creada al hacer login
+    if (!isset($_SESSION["logueado"])) {
+        
+        print "<script>window.location = '../login.php';</script>";
+
+    }else{
+
+        $arrayProductos = selectMisProductos($conn,$_SESSION["logueado"]);
+    }
+
     require_once('../../templates/header.php');
 
     require_once('../../models/conexion.php');
@@ -7,14 +17,6 @@
     require_once('../../models/consultas.php');
 
     $conn = conexion();
-
-    $arrayProductos = selectMisProductos($conn,$_SESSION["logueado"]);
-
-    //verificamos la variable de sesion creada al hacer login
-    if (!isset($_SESSION["logueado"])) {
-        
-        header("Location: http://localhost/Tiendaphp/index.php");
-    }
 ?>
 
 <div class="content-dashboard d-flex">
